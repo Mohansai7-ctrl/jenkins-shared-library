@@ -24,8 +24,12 @@ def call(Map configMap){
             stage('Read the version') {
                 steps {
                     script{
-                        def packageJson = readJSON file: 'package.json'
-                        appVersion = packageJson.version
+                        //def packageJson = readJSON file: 'package.json'
+                        //appVersion = packageJson.version
+                        //Read requirements.txt file
+                        def requirements = readFile('requirements.txt')   // requirements.txt file should be present in payment
+                        appVersion = requirements.version
+                        //echo "Requirements: \n${requirements}"
                         echo "App version: ${appVersion}"
                     }
                 }
