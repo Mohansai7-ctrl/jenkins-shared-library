@@ -77,7 +77,7 @@ def call(Map configmap) {
                 }
 
                 steps{
-                    build job: "../backend-jenkins_ci_cd/${component}-cd", parameters: [   // In jenkins pipeline, folders should be EXPENSE --> backend ---> backend-cd and backend - ci, due to this provided ../${component}
+                    build job: "../${component}-cd", parameters: [   // In jenkins pipeline, folders should be EXPENSE/Roboshop --> backend ---> backend-cd and backend - ci, due to this provided ../${component}
                         string(name: 'version', value: "$appVersion"),
                         string(name: 'ENVIRONMENT', value: "dev"),
                     ], wait: true

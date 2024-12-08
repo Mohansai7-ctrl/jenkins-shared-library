@@ -77,7 +77,7 @@ def call(Map configMap){
                 }
 
                 steps{
-                    build job: "../backend-jenkins_ci_cd/${component}-cd", parameters: [
+                    build job: "../${component}-cd", parameters: [   // In jenkins pipeline, folders should be Roboshop --> ${component} ---> ${component}-cd and ${component} ,,,,,ex: Roboshop ---> catalogue ----> catalogue and catalogue-cd
                         string(name: 'version', value: "$appVersion"),
                         string(name: 'ENVIRONMENT', value: "dev"),
                     ], wait: true
